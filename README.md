@@ -1,5 +1,4 @@
-# Angular
-Angular 学习总结
+# Angular 总结
 
 ## Angular 简介
 Angular 是一个基于 TypeScript 构建的开发平台。它包括：
@@ -119,13 +118,41 @@ Angular 是一个基于 TypeScript 构建的开发平台。它包括：
 - 路由出口，`<router-outlet></router-outlet>`
 - 路由链接，`RouterLink=" ... "`
 - 活动路由链接，作用在于给当前活动的链接增加 CSS 样式，使用指令 `RouterLinkActive=" ... "`
-- 路由器状态
-- 
 - 激活路由
     - 导入包 `import { ActivatedRoute } from '@angular/router'`
     - 注册服务 `private activatedRoute: ActivatedRoute`
+- 路由器状态
+    - 通过 `ActivatedRoute` 的 `routerStat` 属性来访问
+- 路由器事件，Router 在每次导航过程中都会通过 Router.events 属性发出导航事件
+    - `NavigationStart` 导航开始时触发的事件
+    - `RouteConfigLoadStart` 在 Router 惰性加载路由配置之前触发的事件
+    - ...
 
 ### 表单
+
+#### 简介
+用表单处理用户输入是许多常见应用的基础功能。 应用通过表单来让用户登录、修改个人档案、输入敏感信息以及执行各种数据输入任务。
+Angular 提供了两种不同的方法来通过表单处理用户输入：响应式表单和模板驱动表单。 两者都从视图中捕获用户输入事件、验证用户输入、创建表单模型、修改数据模型，并提供跟踪这些更改的途径。
+
+#### 响应式表单
+响应式表单提供对底层表单对象模型直接、显式的访问。它们与模板驱动表单相比，更加健壮：它们的可扩展性、可复用性和可测试性都更高。如果表单是你的应用程序的关键部分，或者你已经在使用响应式表单来构建应用，那就使用响应式表单。
+
+#### 模板驱动表单
+模板驱动表单依赖模板中的指令来创建和操作底层的对象模型。它们对于向应用添加一个简单的表单非常有用，比如电子邮件列表注册表单。它们很容易添加到应用中，但在扩展性方面不如响应式表单。如果你有可以只在模板中管理的非常基本的表单需求和逻辑，那么模板驱动表单就很合适。
+
+#### 响应式表单 VS 模板驱动表单
+![image](https://user-images.githubusercontent.com/38776616/119081645-01b80b00-ba2f-11eb-8858-d67778c0148c.png)
+可伸缩性：响应式表单 > 模板驱动表单
+
+#### 常用表单基础类
+
+响应式表单和模板驱动表单都建立在下列基础类之上。
+- FormControl 实例用于追踪单个表单控件的值和验证状态。
+- FormGroup 用于追踪一个表单控件组的值和状态。
+- FormArray 用于追踪表单控件数组的值和状态。
+- ControlValueAccessor 用于在 Angular 的 FormControl 实例和原生 DOM 元素之间创建一个桥梁。
+
+
 
 ### HTTP 客户端
 
