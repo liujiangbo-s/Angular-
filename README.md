@@ -19,7 +19,7 @@ Angular 是一个基于 TypeScript 构建的开发平台。它包括：
 
 ## Angular 要点
 
-### 指令
+### 模板
 
 - 插值 - 在 HTML 中使用插值和表达式。**可以用做 HTML 元素的内容或元素的属性的值，用 {{ ... }} 表示，支持变量和表达式**
 
@@ -113,6 +113,17 @@ Angular 是一个基于 TypeScript 构建的开发平台。它包括：
 3. 类似 asp.net core 的构造函数注入
 
 ### 路由与导航
+
+- 路由器的导入， `import { RouterModule, Routes } from '@angular/router';`
+- 在 App.Module 中的配置，在 imports 数组中，添加 `RouterModule.forRoot(Routes[], oprions)`
+- 路由出口，`<router-outlet></router-outlet>`
+- 路由链接，`RouterLink=" ... "`
+- 活动路由链接，作用在于给当前活动的链接增加 CSS 样式，使用指令 `RouterLinkActive=" ... "`
+- 路由器状态
+- 
+- 激活路由
+    - 导入包 `import { ActivatedRoute } from '@angular/router'`
+    - 注册服务 `private activatedRoute: ActivatedRoute`
 
 ### 表单
 
