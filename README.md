@@ -93,10 +93,28 @@ Angular 是一个基于 TypeScript 构建的开发平台。它包括：
 - 外部的样式文件，可以使用 @import 规则引入其他的 CSS 文件
 - 外部的样式文件，可以是 .css, .scss, .less, .styl
 
+#### 内容投影
+- 单插槽内容投影
+    - 使用 ng-content 元素，创建插槽，在组件模板中使用
+- 多插槽内容投影
+    - 一个组件可以包含多个插槽，通过 **select** 标识插槽的区别
+    - e.g: 
+        - 定义插槽 template: `<ng-content select="[question]"></ng-content>`
+        - 填充插槽 `<p question>
+                    Is content projection cool?
+                  </p>`
+- 有条件的内容投影
+
+#### 动态组件
+
 ### 依赖注入
 1. 创建一个 service，使用 @Injectable 来修饰
 2. 在组件的 constructor() 中注入服务
 3. 类似 asp.net core 的构造函数注入
 
-### 生命周期
+### 路由与导航
+
+### 表单
+
+### HTTP 客户端
 
