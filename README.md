@@ -62,7 +62,36 @@ Angular 是一个基于 TypeScript 构建的开发平台。它包括：
 
 ### 组件
 
+#### 简介
+组件是 Angular 应用的主要构造块。每个组件包括如下部分：
+- 一个 HTML 模板，用于声明页面要渲染的内容
+- 一个用于定义行为的 Typescript 类
+- 一个 CSS 选择器，用于定义组件在模板中的使用方式
+- （可选）要应用在模板上的 CSS 样式
 
+#### 创建
+`ng generate component <component-name>`
+
+#### 生命周期
+- ngOnChanges() -- 监测到到输入属性值得变化，便会调用，所以会发生的比较频繁
+- ngOnInit() -- 初始化指令或组件的时候调用，只调用一次
+- ngDoCheck() -- 每次调用 ngOnChanges() 后，都会调用此函数。首次会在 ngOnInit() 后调用
+- ngAfterContentInit() -- 当 Angular 把外部内容投影进组件视图或指令所在的视图之后调用。只调用一次
+- ngAfterConentChecked() -- 每当 Angular 检查完被投影到组件或指令中的内容之后调用。ngAfterContentInit() 和每次 ngDoCheck() 之后调用
+- ngAfterViewInit() -- 当 Angular 初始化完组件视图及其子视图或包含该指令的视图之后调用。只调用一次
+- ngAfterViewChecked() -- 每当 Angular 做完组件视图和子视图或包含该指令的视图的变更检测之后调用。ngAfterViewInit() 和每次 ngAfterContentChecked() 之后调用
+- ngOnDestory() -- 每当 Angular 每次销毁指令/组件**之前**调用并清扫。在 Angular 销毁指令或组件之前立即调用。
+
+#### 父子组件数据交互
+- 使用 @Input() 和 @Output() 装饰器来做数据的交互
+- 使用 setter 或 ngOnChanges() 来截听输入属性值的变化
+
+#### 组件样式
+- 可以将样式内联到**template**中，**template**也可以接受 link 标签
+- 也可以指定**styles**，接受一个包含 CSS 代码的字符串数组
+- 也可以指定**styleUrls**，引用外部的样式文件
+- 外部的样式文件，可以使用 @import 规则引入其他的 CSS 文件
+- 外部的样式文件，可以是 .css, .scss, .less, .styl
 
 ### 依赖注入
 1. 创建一个 service，使用 @Injectable 来修饰
